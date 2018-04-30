@@ -1,0 +1,47 @@
+pkgname=brinkOS-installer
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='brinkOS Installer'
+arch=('x86_64')
+license=('LGPL')
+url="https://github.com/brinkOS/brinkOS-installer"
+source=("git+https://github.com/brinkOS/brinkOS-installer#branch=master")
+sha256sums=('SKIP')
+depends=('kconfig' 'kcoreaddons' 'ki18n' 'solid' 'yaml-cpp' 'parted' 'boost' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gptfdisk' 'kdebase-runtime' 'rsync' 'python' 'dmidecode' 'ki18n' 'squashfs-tools' 'kpmcore' 'qt5-webengine' 'qt5-styleplugins-git' 'qt5ct' 'kparts')
+makedepends=('extra-cmake-modules' 'qt5-tools' 'git')
+backup=('usr/share/calamares/modules/bootloader.conf'
+        'usr/share/calamares/modules/displaymanager.conf'
+        'usr/share/calamares/modules/initcpio.conf'
+        'usr/share/calamares/modules/unpackfs.conf')
+
+prepare() {
+	cd "$srcdir/brinkOS-installer/brinkOS-installer"
+	#sed -i -e "s|CALAMARES_VERSION_PATCH 0|CALAMARES_VERSION_PATCH $_pointver|g" CMakeLists.txt
+}
+
+build() {
+	cd "$srcdir/brinkOS-installer/brinkOS-installer"
+
+	mkdir -p build
+	cd build
+        cmake .. \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_INSTALL_PREFIX=/usr \
+              -DWITH_PARTITIONMANAGER=1 \
+              -DCMAKE_INSTALL_LIBDIR=lib
+        make
+}
+
+package() {
+	cd "$srcdir/brinkOS-installer/brinkOS-installer/build"
+	make DESTDIR="$pkgdir" install
+	install -Dm644 "../settings.conf" "$pkgdir/usr/share/calamares/settings.conf"
+	mkdir -p /usr/share/icons/
+	# install -Dm644 "./calamares.png" "$pkgdir/usr/share/icons/calamares.png"
+	# install -Dm644 "./brinkOS-Installer.desktop" "$pkgdir/usr/share/applications/brinkOS-Installer.desktop"
+	rm -r "$pkgdir/usr/lib/calamares/modules/dummyprocess/"
+	rm -r "$pkgdir/usr/lib/calamares/modules/dummypython/"
+	rm "$pkgdir/usr/share/calamares/modules/dummypython.conf"
+	cd "$srcdir/brinkOS-installer/brinkOS-installer"
+	rm -r build
+}
