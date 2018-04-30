@@ -1,0 +1,17 @@
+post_remove(){
+rm -r "/usr/share/themes/brinkOS"
+rm -r "/usr/share/themes/brinkOS-Dark"
+rm -r "/usr/share/themes/brinkOS-Darker"
+}
+
+pre_upgrade(){
+rm -r "/usr/share/themes/brinkOS"
+rm -r "/usr/share/themes/brinkOS-Dark"
+rm -r "/usr/share/themes/brinkOS-Darker"
+}
+
+pre_install(){
+rm -r "/usr/share/themes/brinkOS"
+rm -r "/usr/share/themes/brinkOS-Dark"
+rm -r "/usr/share/themes/brinkOS-Darker"
+}

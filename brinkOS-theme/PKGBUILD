@@ -1,0 +1,23 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+_pkgname='brinkOS Theme'
+pkgname=brinkOS-theme
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='brinkOS GTK theme'
+arch=(any)
+url="https://github.com/brinkOS/brinkOS-theme"
+install="brinkOS-theme.install"
+source=("git+https://github.com/brinkOS/brinkOS-theme#branch=master")
+sha256sums=('SKIP')
+license=('GPL3')
+makedepends=('gtk3' 'sassc')
+
+build() {
+    cd ${srcdir}/brinkOS-theme/brinkOS-theme
+    ./autogen.sh --prefix=/usr
+}
+
+package() {
+	cd ${srcdir}/brinkOS-theme/brinkOS-theme
+	make DESTDIR="${pkgdir}" install
+}
