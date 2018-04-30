@@ -1,7 +1,7 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 _pkgname=antigen
 pkgname=brinkOS-antigen
-pkgver=v2.2.3
+pkgver=v2.2.3.r6.gc91f77c
 pkgrel=1
 pkgdesc="The plugin manager for zsh."
 arch=('any')
