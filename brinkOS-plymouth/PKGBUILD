@@ -1,5 +1,5 @@
 # Maintainer: James Brink <brink.james@gmail.com>
-pkgname=brinknOS-plymouth
+pkgname=brinkOS-plymouth
 pkgver=0.9.3
 pkgrel=1
 pkgdesc="A graphical boot splash screen with kernel mode-setting support"
