@@ -1,0 +1,18 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+_pkgname='brinkOS Plymouth Theme'
+pkgname=brinkOS-plymouth-theme
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Plymouth theme for brinkOS'
+arch=(any)
+license=(GPL)
+url="https://github.com/brinkOS/brinkOS-plymouth-theme"
+depends=()
+install=brinkOS-plymouth-theme.install
+source=("git+https://github.com/brinkOS/brinkOS-plymouth-theme#branch=master")
+sha256sums=('SKIP')
+
+package() {
+	mkdir -p "${pkgdir}/usr/share/plymouth/themes"
+	cp -rf "${srcdir}/brinkOS-plymouth-theme/" "${pkgdir}/usr/share/plymouth/themes/brinkOS"
+}
