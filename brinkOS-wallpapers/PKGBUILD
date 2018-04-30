@@ -1,0 +1,20 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+_pkgname='brinkOS Wallpapers'
+pkgname=brinkOS-wallpapers
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Wallpapers for brinkOS'
+arch=(any)
+license=(GPL)
+url="https://github.com/brinkOS/brinkOS-wallpapers"
+depends=()
+install=brinkOS-wallpapers.install
+source=("git+https://github.com/brinkOS/brinkOS-wallpapers#branch=master")
+sha256sums=('SKIP')
+
+package() {
+	mkdir -p "${pkgdir}/usr/share/backgrounds"
+	cp -rf "${srcdir}/brinkOS-wallpapers/brinkOS-wallpapers/backgrounds/brinkOS" "${pkgdir}/usr/share/backgrounds/brinkOS"
+	mkdir -p "${pkgdir}/usr/share/gnome-background-properties"
+	cp -f "${srcdir}/brinkOS-wallpapers/brinkOS-wallpapers/brinkOS-backgrounds.xml" "${pkgdir}/usr/share/gnome-background-properties"
+}
