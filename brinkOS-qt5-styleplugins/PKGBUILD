@@ -1,4 +1,4 @@
-# shellcheck disable=SC2034,SC2154,SC2164
+# Maintainer: James Brink <brink.james@gmail.com>
 pkgname=('brinkOS-qt5-styleplugins')
 _srcname="brinkOS-qt5-styleplugins/brinkOS-qt5-styleplugins"
 pkgdesc='Additional style plugins for Qt5'
