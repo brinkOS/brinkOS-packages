@@ -1,4 +1,8 @@
 # Maintainer: James Brink <brink.james@gmail.com>
+# This Package was forked from the ArchLinux User Repository
+# All credit to the AUR maintainers below.
+# -----------------------------------------------------------------
+# Original Maintainer: AUR user - nfnty
 pkgname=('brinkOS-qt5-styleplugins')
 _srcname="brinkOS-qt5-styleplugins/brinkOS-qt5-styleplugins"
 pkgdesc='Additional style plugins for Qt5'
