@@ -1,0 +1,86 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+_srcname="brinkOS-gdm-plymouth/brinkOS-gdm-plymouth"
+pkgbase=brinkOS-gdm-plymouth
+pkgname=(brinkOS-gdm-plymouth brinkOS-libgdm-plymouth)
+pkgver=3.28.0
+pkgrel=3
+pkgdesc="Gnome Display Manager with Plymouth support."
+arch=('x86_64')
+license=(GPL)
+url="https://github.com/brinkOS/brinkOS-gdm-plymouth"
+depends=('brinkOS-plymouth' 'gnome-shell>=3.28.0' 'gnome-session' 'upower' 'xorg-xrdb' 'xorg-server' 'xorg-server-xwayland' 'xorg-xhost')
+makedepends=('intltool' 'yelp-tools' 'gobject-introspection')
+checkdepends=('check')
+
+source=("git+https://github.com/brinkOS/brinkOS-gdm-plymouth#branch=master")
+sha256sums=('SKIP')
+
+prepare() {
+  cd ${srcdir}/${_srcname}
+  NOCONFIGURE=1 ./autogen.sh
+}
+
+build() {
+  cd ${srcdir}/${_srcname}
+  ./configure \
+    --prefix=/usr \
+    --sbindir=/usr/bin \
+    --sysconfdir=/etc \
+    --libexecdir=/usr/lib \
+    --localstatedir=/var \
+    --disable-static \
+    --disable-schemas-compile \
+    --enable-gdm-xsession \
+    --enable-ipv6 \
+    --with-plymouth \
+    --with-default-pam-config=arch \
+    --with-default-path=/usr/local/bin:/usr/local/sbin:/usr/bin \
+    --without-tcp-wrappers
+
+  sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+
+  make
+}
+
+check() {
+  cd ${srcdir}/${_srcname}
+  make check
+}
+
+package_brinkOS-gdm-plymouth() {
+  depends+=(brinkOS-libgdm-plymouth)
+  provides=("gdm")
+  conflicts=("gdm")
+  optdepends=('fprintd: fingerprint authentication')
+  backup=(etc/pam.d/gdm-autologin etc/pam.d/gdm-fingerprint etc/pam.d/gdm-launch-environment
+          etc/pam.d/gdm-password etc/pam.d/gdm-smartcard etc/gdm/custom.conf
+          etc/gdm/Xsession etc/gdm/PostSession/Default etc/gdm/PreSession/Default)
+  groups=(gnome)
+  install=brinkOS-gdm-plymouth.install
+
+  cd ${srcdir}/${_srcname}
+  make DESTDIR="$pkgdir" install
+
+  chown -R 120:120 "$pkgdir/var/lib/gdm"
+
+  # Unused or created at start
+  rm -r "$pkgdir"/var/{cache,log,run}
+
+  install -Dm644 gdm.sysusers "$pkgdir/usr/lib/sysusers.d/gdm.conf"
+
+  ### Split libgdm
+  make -C libgdm DESTDIR="$pkgdir" uninstall
+  mv "$pkgdir/usr/share/glib-2.0/schemas/org.gnome.login-screen.gschema.xml" "$srcdir/$_srcname"
+}
+
+package_brinkOS-libgdm-plymouth() {
+  pkgdesc="GDM support library including Plymouth support"
+  depends=(systemd glib2 dconf)
+  provides=("libgdm" "libgdm-plymouth" "brinkOS-libgdm-plymouth") 
+  conflicts=("libgdm")
+
+  cd ${srcdir}/${_srcname}
+  make -C libgdm DESTDIR="$pkgdir" install
+  install -Dm644 "$srcdir/${_srcname}/org.gnome.login-screen.gschema.xml" \
+    "$pkgdir/usr/share/glib-2.0/schemas/org.gnome.login-screen.gschema.xml"
+}
