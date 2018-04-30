@@ -1,4 +1,11 @@
 # Maintainer: James Brink <brink.james@gmail.com>
+# This Package was forked from the ArchLinux User Repository
+# All credit to the AUR maintainers below.
+# -----------------------------------------------------------------
+# Original Maintainer: Sebastian Lau <lauseb644 _at_ gmail _dot_ com>
+# Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+# Contributor: Damian01w <damian01w@gmail.com>
 _srcname="brinkOS-gdm-plymouth/brinkOS-gdm-plymouth"
 pkgbase=brinkOS-gdm-plymouth
 pkgname=(brinkOS-gdm-plymouth brinkOS-libgdm-plymouth)
@@ -76,7 +83,7 @@ package_brinkOS-gdm-plymouth() {
 package_brinkOS-libgdm-plymouth() {
   pkgdesc="GDM support library including Plymouth support"
   depends=(systemd glib2 dconf)
-  provides=("libgdm" "libgdm-plymouth" "brinkOS-libgdm-plymouth") 
+  provides=("libgdm" "libgdm-plymouth" "brinkOS-libgdm-plymouth")
   conflicts=("libgdm")
 
   cd ${srcdir}/${_srcname}
