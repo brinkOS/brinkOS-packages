@@ -1,0 +1,78 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+pkgname=plymouth
+pkgver=0.9.3
+pkgrel=1
+pkgdesc="A graphical boot splash screen with kernel mode-setting support"
+url="https://github.com/brinkOS/brinkOS-plymouth"
+arch=('i686' 'x86_64')
+license=('GPL')
+_srcname="brinkOS-plymouth/brinkOS-plymouth"
+depends=('libdrm' 'pango' 'systemd')
+makedepends=('docbook-xsl')
+optdepends=('ttf-dejavu')
+provides=('plymouth' 'brinkOS-plymouth')
+conflicts=('plymouth-git' 'brinkOS-plytmouth' 'plymouth-legacy' 'plymouth-nosystemd')
+backup=('etc/plymouth/plymouthd.conf')
+
+options=('!libtool' '!emptydirs')
+
+source=("git+https://github.com/brinkOS/brinkOS-plymouth#branch=master")
+sha256sums=('SKIP')
+
+
+prepare() {
+	cd "$srcdir"/${_srcname}/plymouth
+	patch -p1 -i $srcdir/${_srcname}/plymouth-set-default-theme.in.patch
+	patch -p1 -i $srcdir/${_srcname}/plymouth-update-initrd.patch
+	patch -p1 -i $srcdir/${_srcname}/plymouth-quit.service.in.patch
+}
+
+build() {
+	cd "$srcdir"/${_srcname}/plymouth
+	autoreconf -fi
+	LDFLAGS="$LDFLAGS -ludev" ./configure \
+		--prefix=/usr \
+		--exec-prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--libdir=/usr/lib \
+		--libexecdir=/usr/lib \
+		--sbindir=/usr/bin \
+		--enable-systemd-integration \
+		--enable-drm \
+		--enable-tracing \
+		--enable-pango \
+		--enable-gtk=no \
+		--with-release-file=/etc/os-release \
+		--with-logo=/usr/share/plymouth/arch-logo.png \
+		--with-background-color=0x000000 \
+		--with-background-start-color-stop=0x000000 \
+		--with-background-end-color-stop=0x4D4D4D \
+		--without-rhgb-compat-link \
+		--without-system-root-install
+
+	make
+}
+
+package() {
+  cd "$srcdir"/${_srcname}/plymouth
+
+  make DESTDIR="$pkgdir" install
+
+  install -Dm644 "$srcdir/${_srcname}/arch-logo.png" "$pkgdir/usr/share/plymouth/arch-logo.png"
+
+  install -Dm644 "$srcdir/${_srcname}/plymouth.encrypt_hook" "$pkgdir/usr/lib/initcpio/hooks/plymouth-encrypt"
+  install -Dm644 "$srcdir/${_srcname}/plymouth.encrypt_install" "$pkgdir/usr/lib/initcpio/install/plymouth-encrypt"
+  install -Dm644 "$srcdir/${_srcname}/plymouth.initcpio_hook" "$pkgdir/usr/lib/initcpio/hooks/plymouth"
+  install -Dm644 "$srcdir/${_srcname}/plymouth.initcpio_install" "$pkgdir/usr/lib/initcpio/install/plymouth"
+  install -Dm644 "$srcdir/${_srcname}/sd-plymouth.initcpio_install" "$pkgdir/usr/lib/initcpio/install/sd-plymouth"
+
+  for i in {gdm,sddm,lxdm,slim,lightdm}-plymouth.service; do
+    install -Dm644 "$srcdir/${_srcname}/$i" "$pkgdir/usr/lib/systemd/system/$i"
+  done
+
+  install -Dm644 "$srcdir/${_srcname}/plymouth-deactivate.service" 	"$pkgdir/usr/lib/systemd/system/plymouth-deactivate.service"
+  install -Dm644 "$srcdir/${_srcname}/plymouth-start.service" "$pkgdir/usr/lib/systemd/system/plymouth-start.service"
+  install -Dm644 "$srcdir/${_srcname}/plymouth-start.path" 	"$pkgdir/usr/lib/systemd/system/plymouth-start.path"
+  install -Dm644 "$pkgdir/usr/share/plymouth/plymouthd.defaults" "$pkgdir/etc/plymouth/plymouthd.conf"
+}
