@@ -2,6 +2,7 @@ pkg
 src
 *.pkg.tar.xz
 *.deb
+*.tar.gz
 brinkOS-icons/brinkOS-icons
 brinkOS-wallpapers/brinkOS-wallpapers
 brinkOS-theme/brinkOS-theme
