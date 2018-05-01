@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.2.4.2
+Name=Nexus Wallet
+Comment=Nexus Wallet
+GenericName=Nexus
+Exec=/usr/bin/nexus
+Icon=/usr/share/brinkOS/icons/nexus.png
+Type=Application
+StartupNotify=true
+Categories=Internet;
+MimeType=text/plain;inode/directory;
+Actions=new-window;
+Keywords=nexus;

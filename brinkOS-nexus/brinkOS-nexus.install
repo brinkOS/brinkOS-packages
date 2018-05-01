@@ -1,7 +1,11 @@
 post_remove(){
   rm -f "/usr/bin/nexus"
+  rm -f "/usr/share/brinkOS/icons/nexus.png"
+  rm -f "/usr/share/applications/nexus.desktop"
 }
 
 pre_upgrade(){
   rm -f "/usr/bin/nexus"
+  rm -f "/usr/share/brinkOS/icons/nexus.png"
+  rm -f "/usr/share/applications/nexus.desktop"
 }

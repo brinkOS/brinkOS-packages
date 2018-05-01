@@ -2,27 +2,32 @@
 _pkgname='brinkOS Nexus'
 pkgname=brinkOS-nexus
 pkgver=0.2.4.2
-pkgrel=1
+pkgrel=2
 pkgdesc='QT Wallet for Nexus'
 arch=(any)
 license=(GPL)
-url="https://github.com/brinkOS/brinkOS-nexus"
+url="https://github.com/Nexusoft/Nexus"
 depends=('miniupnpc')
 install=brinkOS-nexus.install
-source=("git+https://github.com/brinkOS/brinkOS-nexus#branch=master")
-sha256sums=('SKIP')
+source=("git+https://github.com/Nexusoft/Nexus#branch=master"
+				"nexus.desktop")
+sha256sums=('SKIP' 'SKIP')
 
 prepare() {
-	cd $srcdir/brinkOS-nexus
+	cd $srcdir/Nexus
 	qmake
 }
 
 build() {
-	cd $srcdir/brinkOS-nexus
+	cd $srcdir/Nexus
 	make
 }
 
 package() {
 	mkdir -p "${pkgdir}/usr/bin"
-	cp "${srcdir}/brinkOS-nexus/nexus-qt" "${pkgdir}/usr/bin/nexus"
+	mkdir -p "${pkgdir}/usr/share/brinkOS/icons"
+	mkdir -p "${pkgdir}/usr/share/applications"
+	cp "${srcdir}/Nexus/nexus-qt" "${pkgdir}/usr/bin/nexus"
+	cp "${srcdir}/nexus.desktop" "${pkgdir}/usr/share/applications/nexus.desktop"
+	cp "${srcdir}/Nexus/src/qt/res/icons/nexus.png" "${pkgdir}/usr/share/brinkOS/icons/nexus.png"
 }
