@@ -1,0 +1,7 @@
+post_remove(){
+  rm -f "/usr/bin/nexus"
+}
+
+pre_upgrade(){
+  rm -f "/usr/bin/nexus"
+}

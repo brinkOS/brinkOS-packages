@@ -1,0 +1,28 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+_pkgname='brinkOS Nexus'
+pkgname=brinkOS-nexus
+pkgver=0.2.4.2
+pkgrel=1
+pkgdesc='QT Wallet for Nexus'
+arch=(any)
+license=(GPL)
+url="https://github.com/brinkOS/brinkOS-nexus"
+depends=('miniupnpc')
+install=brinkOS-nexus.install
+source=("git+https://github.com/brinkOS/brinkOS-nexus#branch=master")
+sha256sums=('SKIP')
+
+prepare() {
+	cd $srcdir/brinkOS-nexus
+	qmake
+}
+
+build() {
+	cd $srcdir/brinkOS-nexus
+	make
+}
+
+package() {
+	mkdir -p "${pkgdir}/usr/bin"
+	cp "${srcdir}/brinkOS-nexus/nexus-qt" "${pkgdir}/usr/bin/nexus"
+}
