@@ -1,0 +1,18 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+_pkgname='brinkOS VIM Colors'
+pkgname=brinkOS-vim-colors
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='brinkOS VIM color'
+arch=(any)
+url="https://github.com/brinkOS/brinkOS-vim-colors"
+install="brinkOS-vim-colors.install"
+source=("git+https://github.com/brinkOS/brinkOS-vim-colors#branch=master")
+sha256sums=('SKIP')
+license=('MIT')
+makedepends=('vim')
+
+package() {
+  mkdir -p "${pkgdir}/etc/vim/autoload/colors"
+	cp -rf "${srcdir}/brinkOS-vim-colors/colors" "${pkgdir}/etc/vim/autoload/"
+}

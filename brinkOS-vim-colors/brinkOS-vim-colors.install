@@ -1,0 +1,7 @@
+post_remove(){
+  rm -rf "/etc/vim/autoload/colors"
+}
+
+pre_upgrade(){
+  rm -rf "/etc/vim/autoload/colors"
+}
