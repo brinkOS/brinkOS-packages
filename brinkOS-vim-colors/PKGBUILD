@@ -13,6 +13,6 @@ license=('MIT')
 makedepends=('vim')
 
 package() {
-  mkdir -p "${pkgdir}/etc/vim/autoload/colors"
-	cp -rf "${srcdir}/brinkOS-vim-colors/colors" "${pkgdir}/etc/vim/autoload/"
+  mkdir -p "${pkgdir}/usr/share/brinkOS/vim/colors"
+	cp -rf "${srcdir}/brinkOS-vim-colors/colors" "${pkgdir}/usr/share/brinkOS/vim/"
 }

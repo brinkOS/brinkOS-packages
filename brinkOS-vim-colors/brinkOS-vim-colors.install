@@ -1,7 +1,7 @@
 post_remove(){
-  rm -rf "/etc/vim/autoload/colors"
+  rm -rf "/usr/share/brinkOS/vim/colors"
 }
 
 pre_upgrade(){
-  rm -rf "/etc/vim/autoload/colors"
+  rm -rf "/usr/share/brinkOS/vim/colors"
 }
