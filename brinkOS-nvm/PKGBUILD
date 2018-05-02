@@ -1,0 +1,51 @@
+# Maintainer: James Brink
+# Forked from AUR
+# Original Maintainer: Tom Wadley <tom@tomwadley.net>
+
+pkgname=brinkOS-nvm
+pkgver=0.33.11
+pkgrel=1
+pkgdesc="Node Version Manager - Simple bash script to manage multiple active node.js versions"
+url="https://github.com/creationix/nvm"
+arch=('any')
+license=('MIT')
+provides=('nvm')
+conflicts=('nvm')
+optdepends=('bash: bash completion')
+install="brinkOS-nvm.install"
+source=("https://github.com/creationix/nvm/archive/v${pkgver}.zip"
+        "init-nvm.sh"
+        "install-nvm-exec")
+sha256sums=('d3c5fa7e22a90faebbbfc88a1e6925ddc42d82c66fdfe1ea6176aaa8df491590'
+            '692317bfd036557f59543fef9b67ff38de68208d30361fe385291f58d3ac0425'
+            'a0d249e4a906b0406cc5867c86b9860b820a4ad5f29e37f377349c1d5b6eba51')
+
+build() {
+  cd "nvm-${pkgver}"
+}
+
+package() {
+  cd "${srcdir}"
+
+  # convenience script
+  install -Dm644 init-nvm.sh "$pkgdir/usr/share/nvm/init-nvm.sh"
+
+  # companion script which installs nvm-exec in NVM_DIR where upstream expects it
+  install -Dm644 install-nvm-exec "$pkgdir/usr/share/nvm/install-nvm-exec"
+
+  cd "nvm-${pkgver}"
+
+  # nvm itself
+  install -Dm644 nvm.sh "$pkgdir/usr/share/nvm/nvm.sh"
+
+  # nvm-exec script for 'nvm exec' command
+  install -Dm755 nvm-exec "$pkgdir/usr/share/nvm/nvm-exec"
+
+  # bash completion
+  install -Dm644 bash_completion "$pkgdir/usr/share/nvm/bash_completion"
+
+  # license
+  install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/nvm/LICENSE.md"
+}
+
+# vim:set ts=2 sw=2 et:

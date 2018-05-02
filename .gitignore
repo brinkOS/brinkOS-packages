@@ -4,6 +4,7 @@ src
 *.deb
 *.tar.gz
 *.tar.xz
+*.zip
 brinkOS-icons/brinkOS-icons
 brinkOS-wallpapers/brinkOS-wallpapers
 brinkOS-theme/brinkOS-theme
