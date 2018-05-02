@@ -1,0 +1,31 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+# Forked from AUR
+# Original Maintainer: Nate Simon <aurpkg (at natesimon.net)>
+
+pkgname=brinkOS-xplayer-plparser
+pkgver=1.0.2
+pkgrel=2
+pkgdesc="Playlist parser for xplayer. X-Apps Project."
+arch=('i686' 'x86_64' 'armv7h')
+license=('GPL')
+depends=('gmime' 'libsoup' 'libarchive' 'libquvi')
+makedepends=('git' 'gnome-common' 'gtk-doc' 'gobject-introspection')
+provides=(xplayer-plparser 'xplayer-plparser')
+conflicts=('xplayer-plparser-git' 'xplayer-plparser')
+url='https://github.com/linuxmint/xplayer-plparser'
+
+source=("xplayer-plparser.tar.gz::https://github.com/linuxmint/xplayer-plparser/archive/${pkgver}.tar.gz")
+md5sums=('586fe3e544a4ebf0d450861ac65efb49')
+
+build() {
+    cd ${srcdir}/xplayer-plparser-${pkgver}
+    ./autogen.sh --prefix="/usr" \
+         --localstatedir="/var" \
+         --libexecdir="/usr/lib/xplayer-plparser"
+    make
+}
+
+package(){
+    cd ${srcdir}/xplayer-plparser-${pkgver}
+    make DESTDIR="$pkgdir/" install
+}
