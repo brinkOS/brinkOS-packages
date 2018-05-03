@@ -9,12 +9,12 @@ post_remove(){
 	rm -f "/etc/skel/.vim/colors/monokai.vim"
 	rm -f "/etc/skel/.vim/_netrwhist"
 
-	# shell profiles
-	rm -f "/etc/skel/.bash_logout"
-	rm -f "/etc/skel/.bash_profile"
-	rm -f "/etc/skel/.bashrc"
+	# dot files
+	# rm -f "/etc/skel/.bash_logout"
+	# rm -f "/etc/skel/.bash_profile"
+	# rm -f "/etc/skel/.bashrc"
 	rm -f "/etc/skel/.vimrc"
-	rm -f "/etc/skel/.zshrc"
+	# rm -f "/etc/skel/.zshrc"
 
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
@@ -31,12 +31,12 @@ pre_upgrade(){
 	rm -f "/etc/skel/.vim/colors/monokai.vim"
 	rm -f "/etc/skel/.vim/_netrwhist"
 
-	# shell profiles
-	rm -f "/etc/skel/.bash_logout"
-	rm -f "/etc/skel/.bash_profile"
-	rm -f "/etc/skel/.bashrc"
+	# dot files
+	# rm -f "/etc/skel/.bash_logout"
+	# rm -f "/etc/skel/.bash_profile"
+	# rm -f "/etc/skel/.bashrc"
 	rm -f "/etc/skel/.vimrc"
-	rm -f "/etc/skel/.zshrc"
+	# rm -f "/etc/skel/.zshrc"
 
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
