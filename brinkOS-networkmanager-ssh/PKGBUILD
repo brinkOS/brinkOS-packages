@@ -1,8 +1,10 @@
-# Maintainer: Tom Nguyen <tom81094@gmail.com>
+# Maintainer: James Brink <brink.james@gmail.com>
+# Forked from AUR
+# Original Maintainer: Tom Nguyen <tom81094@gmail.com>
 # Contributor: lyoko
 
-pkgname=networkmanager-ssh-git
-pkgver=r233.fe3dc5d
+pkgname=brinkOS-networkmanager-ssh
+pkgver=r233
 pkgrel=1
 pkgdesc="SSH VPN support for NetworkManager"
 arch=('any')
