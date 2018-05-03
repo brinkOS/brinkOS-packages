@@ -1,0 +1,43 @@
+post_remove(){
+	# .config directory
+	rm -f "/etc/skel/.config/autostart/firstrun-desktop.sh"
+	rm -f "/etc/skel/.config/autostart/firstrun.desktop"
+	rm -f "/etc/skel/.config/autostart/firstrun.sh"
+
+	# .vim
+	rm -f "/etc/skel/.vim/autoload/pathogen.vim"
+	rm -f "/etc/skel/.vim/colors/monokai.vim"
+	rm -f "/etc/skel/.vim/_netrwhist"
+
+	# shell profiles
+	rm -f "/etc/skel/.bash_logout"
+	rm -f "/etc/skel/.bash_profile"
+	rm -f "/etc/skel/.bashrc"
+	rm -f "/etc/skel/.vimrc"
+	rm -f "/etc/skel/.zshrc"
+
+	# Artwork
+	rm -f "/usr/share/brinkOS/logo.png"
+}
+
+pre_upgrade(){
+	# .config directory
+	rm -f "/etc/skel/.config/autostart/firstrun-desktop.sh"
+	rm -f "/etc/skel/.config/autostart/firstrun.desktop"
+	rm -f "/etc/skel/.config/autostart/firstrun.sh"
+
+	# .vim
+	rm -f "/etc/skel/.vim/autoload/pathogen.vim"
+	rm -f "/etc/skel/.vim/colors/monokai.vim"
+	rm -f "/etc/skel/.vim/_netrwhist"
+
+	# shell profiles
+	rm -f "/etc/skel/.bash_logout"
+	rm -f "/etc/skel/.bash_profile"
+	rm -f "/etc/skel/.bashrc"
+	rm -f "/etc/skel/.vimrc"
+	rm -f "/etc/skel/.zshrc"
+
+	# Artwork
+	rm -f "/usr/share/brinkOS/logo.png"
+}
