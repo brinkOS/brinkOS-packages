@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=3
+pkgrel=4
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
@@ -35,5 +35,6 @@ package() {
 	# Artwork
 	install -Dm755 "${assets_path}/usr/share/brinkOS/logo.png" "${pkgdir}/usr/share/brinkOS/logo.png"
 	install -Dm755 "${assets_path}/usr/share/brinkOS/icons/logo.png" "${pkgdir}/usr/share/brinkOS/icons/logo.png"
+	install -Dm755 "${assets_path}/usr/share/brinkOS/icons/icon.png" "${pkgdir}/usr/share/brinkOS/icons/icon.png"
 
 }

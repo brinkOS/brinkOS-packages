@@ -19,6 +19,7 @@ post_remove(){
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
 	rm -f "/usr/share/brinkOS/icons/logo.png"
+	rm -f "/usr/share/brinkOS/icons/icon.png"
 }
 
 pre_upgrade(){
@@ -42,4 +43,5 @@ pre_upgrade(){
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
 	rm -f "/usr/share/brinkOS/icons/logo.png"
+	rm -f "/usr/share/brinkOS/icons/icon.png"
 }
