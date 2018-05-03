@@ -6,11 +6,12 @@
 
 pkgname=brinkOS-acpilight
 pkgver=1.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A backward-compatibile xbacklight replacement based on ACPI"
 arch=('any')
 url="https://github.com/wavexx/acpilight"
 license=('GPL3')
+groups=('brinkOS-mac-support')
 depends=('python')
 provides=('xorg-xbacklight')
 conflicts=('xorg-xbacklight' 'acpilight')
