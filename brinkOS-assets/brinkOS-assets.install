@@ -19,15 +19,6 @@ post_remove(){
     # User systemd
     rm -f "/etc/skel/.config/systemd/user/ipfs.service"
 
-    # System wide configs
-    if [ -f /etc/mkinitcpio.conf.orig ]; then
-        mv "/etc/mkinitcpio.conf.orig" "/etc/mkinitcpio.conf"
-    fi
-
-    if [ -f /etc/pacman.conf.orig ]; then
-        mv "/etc/pacman.conf.orig" "/etc/pacman.conf"
-    fi
-
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
 	rm -f "/usr/share/brinkOS/icons/logo.png"
@@ -54,15 +45,6 @@ pre_upgrade(){
 
     # User systemd
     rm -f "/etc/skel/.config/systemd/user/ipfs.service"
-    
-    # System wide configs
-    if [ -f /etc/mkinitcpio.conf.orig ]; then
-        mv "/etc/mkinitcpio.conf.orig" "/etc/mkinitcpio.conf"
-    fi
-
-    if [ -f /etc/pacman.conf.orig ]; then
-        mv "/etc/pacman.conf.orig" "/etc/pacman.conf"
-    fi
 
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
@@ -70,18 +52,3 @@ pre_upgrade(){
 	rm -f "/usr/share/brinkOS/icons/icon.png"
 }
 
-post_upgrade(){
-    mv "/etc/mkinitcpio.conf" "/etc/mkinitcpio.conf.orig"
-    mv "/etc/pacman.conf" "/etc/pacman.conf.orig"
-    
-    mv "/etc/mkinitcpio.brinkOS.conf" "/etc/mkinitcpio.conf"
-    mv "/etc/pacman.brinkOS.conf" "/etc/pacman.conf"
-}
-
-post_install(){
-    mv "/etc/mkinitcpio.conf" "/etc/mkinitcpio.conf.orig"
-    mv "/etc/pacman.conf" "/etc/pacman.conf.orig"
-    
-    mv "/etc/mkinitcpio.brinkOS.conf" "/etc/mkinitcpio.conf"
-    mv "/etc/pacman.brinkOS.conf" "/etc/pacman.conf"
-}

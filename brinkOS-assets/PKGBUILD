@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=6
+pkgrel=7
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
@@ -34,10 +34,6 @@ package() {
 
     # User systemd
 	install -Dm755 "${assets_path}/etc/skel/.config/systemd/user/ipfs.service" "${pkgdir}/etc/skel/.config/systemd/user/ipfs.service"
-
-    # System wide config files.
-	install -Dm755 "${assets_path}/etc/pacman.conf" "${pkgdir}/etc/pacman.brinkOS.conf"
-	install -Dm755 "${assets_path}/etc/mkinitcpio.conf" "${pkgdir}/etc/mkinitcpio.brinkOS.conf"
 
 	# Artwork
 	install -Dm755 "${assets_path}/usr/share/brinkOS/logo.png" "${pkgdir}/usr/share/brinkOS/logo.png"
