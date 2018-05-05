@@ -16,6 +16,9 @@ post_remove(){
 	rm -f "/etc/skel/.vimrc"
 	# rm -f "/etc/skel/.zshrc"
 
+    # User systemd
+    rm -f "/etc/skel/.config/systemd/user/ipfs.service"
+
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"
 	rm -f "/usr/share/brinkOS/icons/logo.png"
@@ -39,6 +42,9 @@ pre_upgrade(){
 	# rm -f "/etc/skel/.bashrc"
 	rm -f "/etc/skel/.vimrc"
 	# rm -f "/etc/skel/.zshrc"
+
+    # User systemd
+    rm -f "/etc/skel/.config/systemd/user/ipfs.service"
 
 	# Artwork
 	rm -f "/usr/share/brinkOS/logo.png"

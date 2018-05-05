@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=4
+pkgrel=5
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
@@ -31,6 +31,10 @@ package() {
 	# install -Dm755 "${assets_path}/etc/skel/.bashrc" "${pkgdir}/etc/skel/.bashrc"
 	install -Dm755 "${assets_path}/etc/skel/.vimrc" "${pkgdir}/etc/skel/.vimrc"
 	# install -Dm755 "${assets_path}/etc/skel/.zshrc" "${pkgdir}/etc/skel/.zshrc"
+
+    # User systemd
+	install -Dm755 "${assets_path}/etc/skel/.config/systemd/user/ipfs.service" "${pkgdir}/etc/skel/.config/systemd/user/ipfs.service"
+
 
 	# Artwork
 	install -Dm755 "${assets_path}/usr/share/brinkOS/logo.png" "${pkgdir}/usr/share/brinkOS/logo.png"
