@@ -1,7 +1,7 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 pkgname=brinkOS-installer
 pkgver=1.0.0
-pkgrel=5
+pkgrel=7
 pkgdesc='brinkOS Installer'
 arch=('x86_64')
 license=('LGPL')
@@ -39,7 +39,7 @@ package() {
 	install -Dm644 "../settings.conf" "$pkgdir/usr/share/calamares/settings.conf"
 	mkdir -p /usr/share/icons/
 	# install -Dm644 "./calamares.png" "$pkgdir/usr/share/icons/calamares.png"
-	install -Dm644 "$srcdir/brinkOS-installer/brinkOS-installer/brinkOS-Installer.desktop" "$pkgdir/usr/share/applications/brinkOS-Installer.desktop"
+	install -Dm755 "$srcdir/brinkOS-installer/brinkOS-installer/brinkOS-Installer.desktop" "$pkgdir/usr/share/applications/brinkOS-Installer.desktop"
 	rm -r "$pkgdir/usr/lib/calamares/modules/dummyprocess/"
 	rm -r "$pkgdir/usr/lib/calamares/modules/dummypython/"
 	rm "$pkgdir/usr/share/calamares/modules/dummypython.conf"
