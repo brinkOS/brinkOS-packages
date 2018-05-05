@@ -14,6 +14,7 @@ post_remove(){
 	# rm -f "/etc/skel/.bash_profile"
 	# rm -f "/etc/skel/.bashrc"
 	rm -f "/etc/skel/.vimrc"
+	rm -f "/etc/skel/.xinitrc"
 	# rm -f "/etc/skel/.zshrc"
 
     # User systemd
@@ -41,6 +42,7 @@ pre_upgrade(){
 	# rm -f "/etc/skel/.bash_profile"
 	# rm -f "/etc/skel/.bashrc"
 	rm -f "/etc/skel/.vimrc"
+	rm -f "/etc/skel/.xinitrc"
 	# rm -f "/etc/skel/.zshrc"
 
     # User systemd
