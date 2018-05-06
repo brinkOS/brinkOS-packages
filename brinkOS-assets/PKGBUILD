@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=15
+pkgrel=16
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
