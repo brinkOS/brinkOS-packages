@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=12
+pkgrel=13
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
@@ -35,6 +35,9 @@ package() {
 
     # User systemd
 	install -Dm755 "${assets_path}/etc/skel/.config/systemd/user/ipfs.service" "${pkgdir}/etc/skel/.config/systemd/user/ipfs.service"
+
+    # Cinnamon custimizations.
+	install -Dm755 "${assets_path}/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json" "${pkgdir}/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"
 
 	# Artwork
 	install -Dm755 "${assets_path}/usr/share/brinkOS/logo.png" "${pkgdir}/usr/share/brinkOS/logo.png"

@@ -17,6 +17,9 @@ post_remove(){
 	rm -f "/etc/skel/.xinitrc"
 	# rm -f "/etc/skel/.zshrc"
 
+    # Cinnamon custimizations
+    rm -f "/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"
+
     # User systemd
     rm -f "/etc/skel/.config/systemd/user/ipfs.service"
 
@@ -45,6 +48,9 @@ pre_upgrade(){
 	rm -f "/etc/skel/.vimrc"
 	rm -f "/etc/skel/.xinitrc"
 	# rm -f "/etc/skel/.zshrc"
+
+    # Cinnamon custimizations
+    rm -f "/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"
 
     # User systemd
     rm -f "/etc/skel/.config/systemd/user/ipfs.service"
