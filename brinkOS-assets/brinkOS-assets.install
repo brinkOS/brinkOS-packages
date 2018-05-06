@@ -24,6 +24,7 @@ post_remove(){
 	rm -f "/usr/share/brinkOS/logo.png"
 	rm -f "/usr/share/brinkOS/icons/logo.png"
 	rm -f "/usr/share/brinkOS/icons/icon.png"
+	rm -f "/usr/share/brinkOS/icons/logo.svg"
 }
 
 pre_upgrade(){
@@ -52,5 +53,6 @@ pre_upgrade(){
 	rm -f "/usr/share/brinkOS/logo.png"
 	rm -f "/usr/share/brinkOS/icons/logo.png"
 	rm -f "/usr/share/brinkOS/icons/icon.png"
+	rm -f "/usr/share/brinkOS/icons/logo.svg"
 }
 
