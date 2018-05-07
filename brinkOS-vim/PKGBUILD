@@ -1,0 +1,26 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+pkgname=brinkOS-vim
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="brinkOS vim custimizations"
+arch=('i686' 'x86_64')
+url="https://github.com/brinkOS/brinkOS"
+license=('MIT')
+depends=('vim')
+provides=('brinkOS-vim')
+depends=('vim')
+makedepends=('git')
+source=("dein::git+https://github.com/Shougo/dein.vim")
+md5sums=('SKIP')
+
+package() {
+    cd "dein"
+    sharepath="${pkgdir}/usr/share"
+    vimpath="${sharepath}/vim/vimfiles"
+    # install to global Vim directory
+    install -Dm 644 doc/dein.txt "${vimpath}/doc/dein.txt"
+    cp -R autoload ${vimpath}
+    # LICENSE and README
+    install -Dm 644 LICENSE ${sharepath}/licenses/${pkgname}/LICENSE
+    install -Dm 644 README.md ${sharepath}/doc/${pkgname}/README
+}
