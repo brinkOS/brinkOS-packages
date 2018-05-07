@@ -2,7 +2,7 @@
 _pkgname='brinkOS Icons'
 pkgname=brinkOS-icons
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Icons for brinkOS'
 arch=(any)
 license=(GPL)
@@ -14,8 +14,5 @@ sha256sums=('SKIP')
 
 package() {
 	mkdir -p "${pkgdir}/usr/share/icons"
-	cp -rf "${srcdir}/brinkOS-icons/brinkOS-icons/brinkOS-base" "${pkgdir}/usr/share/icons"
-	cp -rf "${srcdir}/brinkOS-icons/brinkOS-icons/brinkOS-base-light" "${pkgdir}/usr/share/icons"
 	cp -rf "${srcdir}/brinkOS-icons/brinkOS-icons/brinkOS" "${pkgdir}/usr/share/icons"
-	cp -rf "${srcdir}/brinkOS-icons/brinkOS-icons/brinkOS-light" "${pkgdir}/usr/share/icons"
 }
