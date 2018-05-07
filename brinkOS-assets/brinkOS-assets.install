@@ -16,6 +16,7 @@ post_remove(){
 	rm -f "/etc/skel/.vimrc"
 	rm -f "/etc/skel/.xinitrc"
 	# rm -f "/etc/skel/.zshrc"
+	rm -f "/etc/skel/.config/kitty/kitty.conf"
 
     # Cinnamon custimizations
     rm -f "/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"
@@ -48,6 +49,7 @@ pre_upgrade(){
 	rm -f "/etc/skel/.vimrc"
 	rm -f "/etc/skel/.xinitrc"
 	# rm -f "/etc/skel/.zshrc"
+	rm -f "/etc/skel/.config/kitty/kitty.conf"
 
     # Cinnamon custimizations
     rm -f "/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"
