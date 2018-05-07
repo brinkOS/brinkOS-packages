@@ -5,6 +5,7 @@ src
 *.tar.gz
 *.tar.xz
 *.tar.bz2
+*.tar.gz.sig
 *.zip
 brinkOS-icons/brinkOS-icons
 brinkOS-wallpapers/brinkOS-wallpapers
@@ -25,3 +26,4 @@ brinkOS-xf86-input-mtrack/xf86-input-mtrack
 brinkOS-oor/oor
 brinkOS-networkmanager-ssh/brinkOS-networkmanager-ssh
 brinkOS-assets/brinkOS-assets
+brinkOS-cower/cower
