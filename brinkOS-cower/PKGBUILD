@@ -1,0 +1,30 @@
+# Maintainer: James Brink <brink.james@gmail.com>
+
+pkgname=brinkOS-cower
+pkgver=17
+pkgrel=1
+pkgdesc="A simple AUR agent with a pretentious name"
+arch=('i686' 'x86_64')
+url="https://github.com/falconindy/cower"
+license=('MIT')
+depends=('curl' 'pacman' 'yajl')
+provides=('cower')
+conflicts=('cower')
+makedepends=('perl')
+# TODO how do I checkout #branch=master#tag=17
+source=("git+https://github.com/falconindy/cower#tag=17")
+md5sums=('SKIP')
+
+build() {
+  cd "cower"
+  make
+  sed '/^$/q' src/cower.c >LICENSE
+}
+
+package() {
+  cd "cower"
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/cower/LICENSE"
+}
+
+# vim: ft=sh syn=sh
