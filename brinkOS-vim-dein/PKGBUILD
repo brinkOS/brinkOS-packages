@@ -1,17 +1,23 @@
 # Maintainer: James Brink <brink.james@gmail.com>
-pkgname=brinkOS-vim
-pkgver=1.0.0
+pkgname=brinkOS-vim-dein
+pkgver=0.0.r363.gcf88cb0
 pkgrel=1
-pkgdesc="brinkOS vim custimizations"
+pkgdesc="Dein.vim is a dark powered Vim/Neovim plugin manager."
 arch=('i686' 'x86_64')
-url="https://github.com/brinkOS/brinkOS"
+url="https://github.com/Shougo/dein.vim"
 license=('MIT')
-depends=('vim')
 provides=('brinkOS-vim')
+groups=('brinkOS-vim')
 depends=('vim')
 makedepends=('git')
+install=brinkOS-vim-dein-git.install
 source=("dein::git+https://github.com/Shougo/dein.vim")
 md5sums=('SKIP')
+
+pkgver() {
+  cd "dein"
+  git describe --long --tags | sed 's/\(^-]*-g\)/r\1/;s/-/./g'
+}
 
 package() {
     cd "dein"
