@@ -10,7 +10,7 @@ provides=('brinkOS-vim')
 groups=('brinkOS-vim')
 depends=('vim')
 makedepends=('git')
-install=brinkOS-vim-dein-git.install
+install=brinkOS-vim-dein.install
 source=("dein::git+https://github.com/Shougo/dein.vim#branch=master")
 md5sums=('SKIP')
 
