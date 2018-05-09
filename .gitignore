@@ -7,6 +7,7 @@ src
 *.tar.bz2
 *.tar.gz.sig
 *.zip
+*.exe
 brinkOS-icons/brinkOS-icons
 brinkOS-wallpapers/brinkOS-wallpapers
 brinkOS-theme/brinkOS-theme
