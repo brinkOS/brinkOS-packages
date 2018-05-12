@@ -13,10 +13,17 @@ post_remove(){
 	# rm -f "/etc/skel/.bash_logout"
 	# rm -f "/etc/skel/.bash_profile"
 	# rm -f "/etc/skel/.bashrc"
+	rm -f "/etc/skel/.zshrc"
 	rm -f "/etc/skel/.vimrc"
 	rm -f "/etc/skel/.xinitrc"
-	# rm -f "/etc/skel/.zshrc"
 	rm -f "/etc/skel/.config/kitty/kitty.conf"
+
+    # vim directory
+    rm -rf "/etc/skel/.vim"
+    # cache directory (dein)
+    rm -rf "/etc/skel/.cache"
+    # antigen directory
+    rm -rf "/etc/skel/.antigen"
 
     # Cinnamon custimizations
     rm -f "/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"
@@ -46,10 +53,17 @@ pre_upgrade(){
 	# rm -f "/etc/skel/.bash_logout"
 	# rm -f "/etc/skel/.bash_profile"
 	# rm -f "/etc/skel/.bashrc"
+	rm -f "/etc/skel/.zshrc"
 	rm -f "/etc/skel/.vimrc"
 	rm -f "/etc/skel/.xinitrc"
-	# rm -f "/etc/skel/.zshrc"
 	rm -f "/etc/skel/.config/kitty/kitty.conf"
+
+    # vim directory
+    rm -rf "/etc/skel/.vim"
+    # cache directory (dein)
+    rm -rf "/etc/skel/.cache"
+    # antigen directory
+    rm -rf "/etc/skel/.antigen"
 
     # Cinnamon custimizations
     rm -f "/etc/skel/.cinnamon/configs/menu@cinnamon.org/1.json"

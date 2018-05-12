@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=17
+pkgrel=1
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
@@ -14,7 +14,6 @@ sha256sums=('SKIP')
 assets_path="./brinkOS-assets/brinkOS-assets"
 
 package() {
-	ls -lart "${assets_path}/etc/skel/.config/autostart"
 	# .config directory
 	install -Dm755 "${assets_path}/etc/skel/.config/autostart/firstrun-desktop.sh" "${pkgdir}/etc/skel/.config/autostart/firstrun-desktop.sh"
 	install -Dm755 "${assets_path}/etc/skel/.config/autostart/firstrun.desktop" "${pkgdir}/etc/skel/.config/autostart/firstrun.desktop"
@@ -29,10 +28,17 @@ package() {
 	# install -Dm755 "${assets_path}/etc/skel/.bash_logout" "${pkgdir}/etc/skel/.bash_logout"
 	# install -Dm755 "${assets_path}/etc/skel/.bash_profile" "${pkgdir}/etc/skel/.bash_profile"
 	# install -Dm755 "${assets_path}/etc/skel/.bashrc" "${pkgdir}/etc/skel/.bashrc"
+	install -Dm755 "${assets_path}/etc/skel/.zshrc" "${pkgdir}/etc/skel/.zshrc"
 	install -Dm755 "${assets_path}/etc/skel/.vimrc" "${pkgdir}/etc/skel/.vimrc"
 	install -Dm755 "${assets_path}/etc/skel/.xinitrc" "${pkgdir}/etc/skel/.xinitrc"
-	# install -Dm755 "${assets_path}/etc/skel/.zshrc" "${pkgdir}/etc/skel/.zshrc"
 	install -Dm755 "${assets_path}/etc/skel/.config/kitty/kitty.conf" "${pkgdir}/etc/skel/.config/kitty/kitty.conf"
+
+    # vim directory
+	cp -r "${assets_path}/etc/skel/.vim" "${pkgdir}/etc/skel/.vim"
+    # cache directory (dein)
+	cp -r "${assets_path}/etc/skel/.cache" "${pkgdir}/etc/skel/.cache"
+    # antigen directory
+	cp -r "${assets_path}/etc/skel/.antigen" "${pkgdir}/etc/skel/.antigen"
 
     # User systemd
 	install -Dm755 "${assets_path}/etc/skel/.config/systemd/user/ipfs.service" "${pkgdir}/etc/skel/.config/systemd/user/ipfs.service"
