@@ -2,7 +2,7 @@
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Assets for brinkOS'
 arch=(any)
 license=(GPL)
@@ -36,7 +36,7 @@ package() {
     # vim directory
 	cp -r "${assets_path}/etc/skel/.vim" "${pkgdir}/etc/skel/.vim"
     # cache directory (dein)
-	cp -r "${assets_path}/etc/skel/.cache" "${pkgdir}/etc/skel/.cache"
+	# cp -r "${assets_path}/etc/skel/.cache" "${pkgdir}/etc/skel/.cache"
     # antigen directory
 	cp -r "${assets_path}/etc/skel/.antigen" "${pkgdir}/etc/skel/.antigen"
 
