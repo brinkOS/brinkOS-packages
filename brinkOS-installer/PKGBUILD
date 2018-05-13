@@ -1,7 +1,7 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 pkgname=brinkOS-installer
 pkgver=1.0.0
-pkgrel=4
+pkgrel=5
 pkgdesc='brinkOS Installer'
 arch=('x86_64')
 license=('LGPL')
@@ -17,7 +17,6 @@ backup=('usr/share/calamares/modules/bootloader.conf'
 
 prepare() {
 	cd "$srcdir/brinkOS-installer/brinkOS-installer"
-	#sed -i -e "s|CALAMARES_VERSION_PATCH 0|CALAMARES_VERSION_PATCH $_pointver|g" CMakeLists.txt
 }
 
 build() {
@@ -38,11 +37,16 @@ package() {
 	make DESTDIR="$pkgdir" install
 	install -Dm644 "../settings.conf" "$pkgdir/usr/share/calamares/settings.conf"
 	mkdir -p /usr/share/icons/
-	# install -Dm644 "./calamares.png" "$pkgdir/usr/share/icons/calamares.png"
+
+    # Add installer luancher.
 	install -Dm755 "$srcdir/brinkOS-installer/brinkOS-installer/brinkOS-Installer.desktop" "$pkgdir/usr/share/applications/brinkOS-Installer.desktop"
-	# rm -r "$pkgdir/usr/lib/calamares/modules/dummyprocess/"
-	# rm -r "$pkgdir/usr/lib/calamares/modules/dummypython/"
-	# rm "$pkgdir/usr/share/calamares/modules/dummypython.conf"
-	cd "$srcdir/brinkOS-installer/brinkOS-installer"
-	rm -r build
+
+	# Add installer launcher to desktops
+    install -Dm755 "$srcdir/brinkOS-installer/brinkOS-installer/brinkOS-Installer.desktop" "$pkgdir/etc/skel/Desktop/brinkOS-Installer.desktop"
+
+    # Remove un-needed calamares launcher.
+    rm "${pkgdir}/usr/share/applications/calamares.desktop"
+
+    # Cleanup remove build directory
+	rm -rf "$srcdir/brinkOS-installer/brinkOS-installer/build"
 }
