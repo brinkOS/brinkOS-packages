@@ -1,7 +1,7 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 pkgname=brinkOS-installer
 pkgver=1.0.0
-pkgrel=5
+pkgrel=6
 pkgdesc='brinkOS Installer'
 arch=('x86_64')
 license=('LGPL')
@@ -37,6 +37,9 @@ package() {
 	make DESTDIR="$pkgdir" install
 	install -Dm644 "../settings.conf" "$pkgdir/usr/share/calamares/settings.conf"
 	mkdir -p /usr/share/icons/
+
+	# Add installer wrapper script 
+    install -Dm755 "$srcdir/brinkOS-installer/brinkOS-installer/brinkOS-Installer" "$pkgdir/usr/bin/brinkOS-Installer"
 
     # Add installer luancher.
 	install -Dm755 "$srcdir/brinkOS-installer/brinkOS-installer/brinkOS-Installer.desktop" "$pkgdir/usr/share/applications/brinkOS-Installer.desktop"
