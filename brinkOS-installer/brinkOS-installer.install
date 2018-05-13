@@ -1,0 +1,18 @@
+post_remove(){
+	# Remove script and launcher
+	rm -f "/etc/skel/Desktop/brinkOS-Installer.desktop"
+	rm -f "/usr/bin/brinkOS-Installer"
+
+    # Remove from any users home directory.
+    rm -f "/home/**/Desktop/brinkOS-Installer.desktop"
+}
+
+pre_upgrade(){
+	# Remove script and launcher
+	rm -f "/etc/skel/Desktop/brinkOS-Installer.desktop"
+	rm -f "/usr/bin/brinkOS-Installer"
+    
+    # Remove from any users home directory.
+    rm -f "/home/**/Desktop/brinkOS-Installer.desktop"
+}
+
