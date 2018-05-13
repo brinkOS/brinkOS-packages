@@ -1,13 +1,14 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 pkgname=brinkOS-installer
 pkgver=1.0.0
-pkgrel=7
+pkgrel=8
 pkgdesc='brinkOS Installer'
 arch=('x86_64')
 license=('LGPL')
 url="https://github.com/brinkOS/brinkOS-installer"
 source=("git+https://github.com/brinkOS/brinkOS-installer#branch=master")
 sha256sums=('SKIP')
+install=brinkOS-installer.install
 depends=('kconfig' 'kcoreaddons' 'ki18n' 'solid' 'yaml-cpp' 'parted' 'boost' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gptfdisk' 'kdebase-runtime' 'rsync' 'python' 'dmidecode' 'ki18n' 'squashfs-tools' 'kpmcore' 'qt5-webengine' 'brinkOS-qt5-styleplugins' 'qt5ct' 'kparts' 'libpwquality')
 makedepends=('extra-cmake-modules' 'qt5-tools' 'git' 'libpwquality')
 backup=('usr/share/calamares/modules/bootloader.conf'
