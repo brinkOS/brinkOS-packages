@@ -2,14 +2,14 @@
 # Original AUR Maintainer: Dany Marcoux <danymarcoux+archlinux@gmail.com>
 pkgname=brinkOS-tag-ag
 pkgver=v1.4.0
-pkgrel=1
+pkgrel=2
 pkgdesc='tag: Instantly jump to your ag matches (Precompiled binary from official repository)'
 arch=('i686' 'x86_64')
 url='https://github.com/aykamko/tag'
 license=('MIT') # https://github.com/aykamko/tag/blob/master/LICENSE
-optdepends=('the_silver_searcher>=0.25'
-            'ripgrep')
+optdepends=('ripgrep')
 options=('!strip' '!emptydirs')
+depends=('the_silver_searcher>=0.25')
 provides=('tag')
 conflicts=('tag-ag', 'tag-ag-git')
 source_i686=("https://github.com/aykamko/tag/releases/download/$pkgver/tag_linux_386.tar.gz")
