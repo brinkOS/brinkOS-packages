@@ -2,7 +2,7 @@
 _pkgname='brinkOS Nexus'
 pkgname=brinkOS-nexus
 pkgver=0.2.4.2
-pkgrel=2
+pkgrel=3
 pkgdesc='QT Wallet for Nexus'
 arch=(any)
 license=(GPL)
