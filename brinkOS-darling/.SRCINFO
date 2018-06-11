@@ -1,0 +1,55 @@
+pkgbase = darling-git
+	pkgdesc = A Darwin/OS X emulation layer for Linux
+	pkgver = r2301.6c63fdc8
+	pkgrel = 1
+	url = http://www.darlinghq.org
+	arch = x86_64
+	groups = darling
+	groups = brinkOS
+	license = GPL3
+	makedepends = git
+	makedepends = cmake
+	makedepends = clang
+	makedepends = bison
+	makedepends = flex
+	makedepends = binutils>=2.28
+	depends = xz
+	depends = fuse
+	depends = libxml2
+	depends = icu
+	depends = openssl
+	depends = bzip2
+	depends = zlib
+	depends = libsystemd
+	depends = wget
+	depends = curl
+	depends = sqlite
+	depends = ruby
+	depends = sed
+	depends = libarchive
+	depends = file
+	depends = python
+	depends = gawk
+	depends = libunwind
+	options = !buildflags
+	source = git+https://github.com/darlinghq/darling.git
+	source = dkms.conf
+	md5sums = SKIP
+	md5sums = b19483c40134e27da7ca7c08bb05c4af
+	depends_x86_64 = lib32-clang
+	depends_x86_64 = lib32-bzip2
+	depends_x86_64 = lib32-systemd
+	depends_x86_64 = lib32-libxslt
+	makedepends_x86_64 = gcc-multilib
+
+pkgname = brinkOS-darling
+	install = brinkOS-darling.install
+	depends = brinkOS-darling-mach-dkms
+
+pkgname = brinkOS-darling-mach-dkms
+	depends = dkms
+	optdepends = linux-headers: build modules against the Arch kernel
+	optdepends = linux-lts-headers: build modules against the LTS kernel
+	optdepends = linux-zen-headers: build modules against the ZEN kernel
+	optdepends = linux-grsec-headers: build modules against the GRSEC kernel
+
