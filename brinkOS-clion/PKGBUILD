@@ -37,10 +37,10 @@ build() {
 
 package_brinkOS-clion() {
     optdepends=(
-        'clion-jre: JetBrains custom Java Runtime (Recommended)'
-        'clion-cmake: JetBrains packaged CMake tools'
-        'clion-gdb: JetBrains packaged GNU debugger'
-        'clion-lldb: JetBrains packaged LLVM debugger'
+        'brinkOS-clion-jre: JetBrains custom Java Runtime (Recommended)'
+        'brinkOS-clion-cmake: JetBrains packaged CMake tools'
+        'brinkOS-clion-gdb: JetBrains packaged GNU debugger'
+        'brinkOS-clion-lldb: JetBrains packaged LLVM debugger'
         'java-runtime: JRE - Required if clion-jre is not installed'
         'cmake: Build system - Required if clion-cmake is not installed'
         'gdb: native GNU debugger'
