@@ -20,7 +20,7 @@ makedepends_x86_64=('gcc-multilib')
 source=('git+https://github.com/darlinghq/darling.git'
 	'dkms.conf')
 md5sums=('SKIP'
-         'b19483c40134e27da7ca7c08bb05c4af')
+         '5c026c33143e1242f92e27864ce1f8ca')
 options=('!buildflags')
 
 pkgver() {
@@ -49,9 +49,9 @@ build() {
 	#cmake .. -DCMAKE_TOOLCHAIN_FILE=../Toolchain.cmake -DCMAKE_INSTALL_PREFIX=/usr
     cmake .. -DCMAKE_INSTALL_PREFIX=/usr
 	msg2 "Run 'make'..."
-    make -j"$(nproc)"
+    make -j$(nproc)
 	msg2 "Run 'make lkm'..."
-	make lkm
+    make lkm -j$(nproc)
 }
 
 package_brinkOS-darling() {
@@ -70,14 +70,17 @@ package_brinkOS-darling-mach-dkms() {
 	            'linux-zen-headers: build modules against the ZEN kernel'
 	            'linux-grsec-headers: build modules against the GRSEC kernel')
 	_srcdest="$pkgdir/usr/src/darling-mach-$pkgver"
+    _srcinstalldest="/usr/src/darling-mach-$pkgver"
 
 	msg2 "Install module sources for DKMS..."
 	install -dm755 $(dirname "$_srcdest")
 	cp -r "$srcdir/$_gitname/src/lkm"       "$_srcdest"
 	cp -r "$srcdir/$_gitname/build/src/lkm" "$_srcdest/migdir"
+    # Copy missing rtsig.h header file
+    cp "$srcdir/$_gitname/build/src/startup/rtsig.h" "$_srcdest/include"
 
 	msg2 "Set configuration for DKMS..."
 	install -Dm644 "$srcdir/dkms.conf"      "$_srcdest"
 	sed -i "s|@PKGVER@|$pkgver|g"           "$_srcdest/dkms.conf"
-	sed -i "s|@SRCDEST@|$_srcdest|g"        "$_srcdest/dkms.conf"
+	sed -i "s|@SRCDEST@|$_srcinstalldest|g"        "$_srcinstalldest/dkms.conf"
 }
