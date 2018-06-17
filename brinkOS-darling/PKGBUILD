@@ -5,7 +5,7 @@
 _gitname=darling
 pkgbase=$_gitname-git
 pkgname=('brinkOS-darling' 'brinkOS-darling-mach-dkms')
-pkgver=r2301.6c63fdc8
+pkgver=r2303.6dff053a
 pkgrel=1
 pkgdesc="A Darwin/OS X emulation layer for Linux"
 arch=('x86_64') # Can only be built on x86_64 systems
@@ -69,8 +69,8 @@ package_brinkOS-darling-mach-dkms() {
 	            'linux-lts-headers: build modules against the LTS kernel'
 	            'linux-zen-headers: build modules against the ZEN kernel'
 	            'linux-grsec-headers: build modules against the GRSEC kernel')
-	_srcdest="$pkgdir/usr/src/darling-mach-$pkgver"
-    _srcinstalldest="/usr/src/darling-mach-$pkgver"
+	_srcdest="$pkgdir/usr/src/brinkOS-darling-mach-$pkgver"
+    _srcinstalldest="/usr/src/brinkOS-darling-mach-$pkgver"
 
 	msg2 "Install module sources for DKMS..."
 	install -dm755 $(dirname "$_srcdest")
@@ -82,5 +82,5 @@ package_brinkOS-darling-mach-dkms() {
 	msg2 "Set configuration for DKMS..."
 	install -Dm644 "$srcdir/dkms.conf"      "$_srcdest"
 	sed -i "s|@PKGVER@|$pkgver|g"           "$_srcdest/dkms.conf"
-	sed -i "s|@SRCDEST@|$_srcinstalldest|g"        "$_srcinstalldest/dkms.conf"
+	sed -i "s|@SRCDEST@|$_srcinstalldest|g"        "$_srcdest/dkms.conf"
 }
