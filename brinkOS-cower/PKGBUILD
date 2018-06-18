@@ -1,8 +1,9 @@
 # Maintainer: James Brink <brink.james@gmail.com>
-
+# Forked from AUR, all credit goes to original maintainers.
+# Original AUR Maintainer: Dave Reisner <d@falconindy.com>
 pkgname=brinkOS-cower
 pkgver=17
-pkgrel=1
+pkgrel=2
 pkgdesc="A simple AUR agent with a pretentious name"
 arch=('i686' 'x86_64')
 url="https://github.com/falconindy/cower"
