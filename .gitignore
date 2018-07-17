@@ -8,6 +8,7 @@ src
 *.tar.gz.sig
 *.zip
 *.exe
+*.tar.gz.asc
 brinkOS-icons/brinkOS-icons
 brinkOS-wallpapers/brinkOS-wallpapers
 brinkOS-theme/brinkOS-theme
@@ -32,3 +33,5 @@ brinkOS-vim-dein/dein
 brinkOS-etcher/etcher-electron
 brinkOS-spl-linux/spl-linux
 brinkOS-darling/darling
+brinkOS-facetimehd-firmware/brinkOS-facetimehd-firmware
+brinkOS-bcwc-pcie/bcwc-pcie-git
