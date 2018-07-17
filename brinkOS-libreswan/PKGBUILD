@@ -6,14 +6,14 @@
 
 pkgname=brinkOS-libreswan
 pkgver=3.25
-pkgrel=1
+pkgrel=2
 pkgdesc="IPsec implementation with IKEv1 and IKEv2 keying protocols"
 arch=('i686' 'x86_64')
 url="https://libreswan.org/"
 license=('GPL' 'MPL')
 depends=('systemd' 'unbound' 'nss' 'libcap-ng' 'curl')
 makedepends=('docbook-xsl' 'xmlto' 'flex' 'bison')
-conflicts=('freeswan' 'openswan' 'strongswan' 'ipsec-tools')
+conflicts=('libreswan' 'freeswan' 'openswan' 'strongswan' 'ipsec-tools')
 backup=('etc/ipsec.conf' 'etc/ipsec.secrets' 'etc/pam.d/pluto')
 source=(https://download.libreswan.org/libreswan-${pkgver}.tar.gz
         tmpfiles.conf)
