@@ -5,7 +5,7 @@
 _gitname=darling
 pkgbase=$_gitname-git
 pkgname=('brinkOS-darling' 'brinkOS-darling-mach-dkms')
-pkgver=r2303.6dff053a
+pkgver=r2304.11b49491
 pkgrel=1
 pkgdesc="A Darwin/OS X emulation layer for Linux"
 arch=('x86_64') # Can only be built on x86_64 systems
