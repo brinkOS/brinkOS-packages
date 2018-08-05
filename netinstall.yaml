@@ -1,0 +1,317 @@
+# These are disabled and hidden as
+# they are included on the base filesystem.
+- name: "brinkOS Base"
+  description: "Base Install"
+  hidden: true
+  selected: false
+  critical: false
+  packages:
+    - alsa-utils
+    - b43-fwcutter
+    - base
+    - bash-completion
+    - bind-tools
+    - brinkOS-aic94xx-firmware
+    - brinkOS-antigen
+    - brinkOS-assets
+    - brinkOS-cower
+    - brinkOS-google-chrome
+    - brinkOS-icons
+    - brinkOS-lha
+    - brinkOS-liquidprompt
+    - brinkOS-mkinitcpio-openswap
+    - brinkOS-pamac
+    - brinkOS-plymouth
+    - brinkOS-plymouth-theme
+    - brinkOS-snapd
+    - brinkOS-terminal
+    - brinkOS-theme
+    - brinkOS-vim-dein
+    - brinkOS-wallpapers
+    - brinkOS-wd719x-firmware
+    - broadcom-wl-dkms
+    - cinnamon
+    - crda
+    - cronie
+    - docker
+    - docker-compose
+    - dosfstools
+    - efitools
+    - exfat-utils
+    - fakeroot
+    - fuse-exfat
+    - gnome-keyring
+    - gnome-screenshot
+    - grub
+    - gtkmm3
+    - gucharmap
+    - gzip
+    - haveged
+    - hunspell
+    - icu
+    - ipw2100-fw
+    - ipw2200-fw
+    - lastpass-cli
+    - libmtp
+    - lightdm
+    - lightdm-gtk-greeter
+    - linux-firmware
+    - linux-headers
+    - mesa
+    - mesa
+    - mesa-libgl
+    - mesa-vdpau
+    - mlocate
+    - modemmanager
+    - mtools
+    - net-tools
+    - networkmanager
+    - ntfs-3g
+    - ntp
+    - openssh
+    - os-prober
+    - pkgfile
+    - powerline
+    - powerline-fonts
+    - readline
+    - refind-efi
+    - rfkill
+    - smartmontools
+    - splix
+    - strace
+    - sudo
+    - tar
+    - tlp
+    - tmux
+    - ttf-arphic-uming
+    - ttf-baekmuk
+    - ttf-bitstream-vera
+    - ttf-dejavu
+    - ttf-droid
+    - ttf-freefont
+    - ttf-liberation
+    - usb_modeswitch
+    - virtualbox-guest-modules-arch
+    - virtualbox-guest-utils
+    - wget
+    - whois
+    - wireless_tools
+    - wpa_actiond
+    - xdg-user-dirs-gtk
+    - xf86-input-libinput
+    - xf86-input-vmmouse
+    - xf86-video-vmware
+    - xorg-fonts
+    - xorg-server
+    - xorg-xinit
+    - xorg-xkill
+    - xterm
+    - xz
+    - zd1211-firmware
+    - zsh
+
+
+- name: "brinkOS Extra"
+  description: "brinkOS extra packages"
+  critical: false
+  selected: true
+  packages:
+    - brinkOS-antigen
+    - brinkOS-etcher
+    - brinkOS-libcgroup
+    - brinkOS-networkmanager-ssh
+    - brinkOS-oor
+    - brinkOS-pix
+    - brinkOS-tag-ag
+    - brinkOS-vim-colors
+    - brinkOS-xed
+    - brinkOS-xplayer
+    - brinkOS-xplayer-plparser
+    - brinkOS-xviewer
+    - gst-libav
+    - gst-plugins-base
+    - gst-plugins-good
+    - gst-plugins-ugly
+    - gstreamer
+    - lightdm-gtk-greeter-settings
+    - nemo-fileroller
+    - nemo-preview
+    - nemo-seahorse
+    - nemo-share
+    - networkmanager-openvpn
+    - networkmanager-pptp
+    - openvpn
+    - python-lxml
+    - python-mako
+    - python-mock
+    - samba
+    - unrar
+    - unzip
+    - vim
+    - vim-plugins
+    - x264
+
+- name: "Development"
+  description: "Programming Languages, Compilers and Tools."
+  critical: false
+  selected: false
+  packages:
+    - base-devel
+    - boost
+    - boost-libs
+    - clang
+    - elixir
+    - erlang
+    - gdb
+    - git
+    - go
+    - jdk10-openjdk
+    - jq
+    - linux-headers
+    - meld
+    - nodejs
+    - npm
+    - php
+    - python
+    - python-pip
+    - ruby
+    - rust
+    - shellcheck
+    - valgrind
+
+- name: "ZFS"
+  description: "ZFS Kenerel Modules and tools."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-spl
+    - brinkOS-spl-headers
+    - brinkOS-spl-utils-common
+    - brinkOS-zfs
+    - brinkOS-zfs-headers
+    - brinkOS-zfs-utils-common
+
+- name: "Dropbox"
+  description: "Dropbox application & nemo integration."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-dropbox
+    - brinkOS-dropbox-cli
+    - brinkOS-nemo-dropbox
+
+- name: "VS-Code"
+  description: "Visual Studio Code"
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-code
+
+- name: "Atom"
+  description: "Atom text editor."
+  critical: false
+  selected: false
+  packages:
+    - atom
+
+- name: "Slack"
+  description: "Slack Desktop Application."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-slack
+
+- name: "Simplenote"
+  description: "Simplenote electon app."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-simplenote
+
+- name: "Blockchain"
+  description: "Blockchain and crypto related packages."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-nexus
+    - go-ethereum
+    - solidity
+
+- name: "Google Chrome"
+  description: "Google Chrome Web Browser."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-google-chrome
+
+- name: "Wire"
+  description: "Wire messenger."
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-wire
+
+- name: "Apple Support"
+  description: "Packages useful for Apple computers"
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-hfsprogs
+
+- name: "AWS"
+  description: "AWS Cli"
+  critical: false
+  selected: false
+  packages:
+    - aws-cli
+    - python2-boto3
+    - python2-pyopenssl
+    - python2-systemd
+
+- name: "IPFS"
+  description: "InterPlanetary File System"
+  critical: false
+  selected: false
+  packages:
+    - brinkOS-ipget
+    - go-ipfs
+
+- name: "VM Guest"
+  description: "Virtualbox & VMware Guest modules and tools."
+  critical: false
+  selected: false
+  packages:
+    - virtualbox-guest-utils
+    - virtualbox-guest-modules-arch
+    - open-vm-tools
+
+- name: "MISC"
+  description: "Misc packages."
+  critical: false
+  selected: false
+  packages:
+    - ansible
+    - calibre
+    - cgmanager
+    - cpulimit
+    - dnscrypt-proxy
+    - emacs
+    - filezilla
+    - gimp
+    - gparted
+    - hexchat
+    - htop
+    - inkscape
+    - kcachegrind
+    - kitty
+    - librsvg
+    - messengerfordesktop
+    - ntfs-3g
+    - poppler-glib
+    - screen
+    - the_silver_searcher
+    - transmission-cli
+    - transmission-gtk
+    - virtualbox
+    - vlc
+    - wireshark-gtk
