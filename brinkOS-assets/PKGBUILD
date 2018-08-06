@@ -1,7 +1,7 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 _pkgname='brinkOS Assets'
 pkgname=brinkOS-assets
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 pkgdesc='Assets for brinkOS'
 arch=(any)
