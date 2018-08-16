@@ -9,6 +9,8 @@ src
 *.zip
 *.exe
 *.tar.gz.asc
+*.crx
+*.xpi
 brinkOS-icons/brinkOS-icons
 brinkOS-wallpapers/brinkOS-wallpapers
 brinkOS-theme/brinkOS-theme
