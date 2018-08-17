@@ -5,7 +5,7 @@
 
 pkgname=brinkOS-simplenote
 _pkgname=simplenote
-pkgver=1.1.6
+pkgver=1.1.7
 pkgrel=1
 pkgdesc="The simplest way to keep notes"
 arch=('x86_64')
