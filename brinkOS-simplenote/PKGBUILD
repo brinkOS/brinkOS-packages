@@ -14,8 +14,8 @@ license=('GPL2')
 depends=('gcc-libs' 'gconf' 'alsa-lib' 'nss' 'libxtst' 'gtk2')
 provides=('simplenote')
 conflicts=('simplenote-electron-bin')
-source=("https://github.com/Automattic/simplenote-electron/releases/download/v${pkgver}/simplenote_${pkgver}_amd64.deb")
-sha256sums=('d48d6a56beace13ca0c82e1bf540360685e3685bb29855dc6dc401c485449c4c')
+source=("https://github.com/Automattic/simplenote-electron/releases/download/v${pkgver}/Simplenote-${pkgver}-amd64.deb")
+sha256sums=('a08e9c1ad31da605a5f4c080e7d9fbee95c2d38707a83e3921c8ddc4f35522d2')
 
 package() {
   bsdtar -xv -C "${pkgdir}" -f "${srcdir}/data.tar.xz"
