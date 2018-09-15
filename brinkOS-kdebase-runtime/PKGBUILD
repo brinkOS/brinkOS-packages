@@ -9,13 +9,13 @@
 
 pkgname=brinkOS-kdebase-runtime
 pkgver=17.08.3
-pkgrel=2
+pkgrel=3
 pkgdesc="Plugins and applications necessary for the running of KDE applications"
 arch=('x86_64')
 url='https://www.kde.org/'
 license=('GPL' 'LGPL')
 makedepends=('pkg-config' 'cmake' 'brinkOS-automoc4' 'doxygen' 'networkmanager' 'boost')
-depends=('kdelibs' 'smbclient' 'libssh' 'libcanberra' 'oxygen-icons' 'xorg-xauth' 'libwebp' 'exiv2' 'gpgme')
+depends=('brinkOS-kdelibs' 'smbclient' 'libssh' 'libcanberra' 'oxygen-icons' 'xorg-xauth' 'libwebp' 'exiv2' 'gpgme')
 optdepends=('drkonqi: crash report tool' 'khelpcenter: to display applications documentation')
 provides=(notification-daemon)
 conflicts=(kdesu4 kdebase-runtime)
@@ -55,7 +55,7 @@ build() {
     -DBUILD_kuiserver=OFF \
     -DBUILD_drkonqi=OFF \
     -DBUILD_doc=OFF
-  make
+  make -j $(nproc)
 }
 
 package() {
