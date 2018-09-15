@@ -9,7 +9,7 @@
 
 pkgname=brinkOS-kdebase-runtime
 pkgver=17.08.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Plugins and applications necessary for the running of KDE applications"
 arch=('x86_64')
 url='https://www.kde.org/'
@@ -18,8 +18,8 @@ makedepends=('pkg-config' 'cmake' 'brinkOS-automoc4' 'doxygen' 'networkmanager' 
 depends=('kdelibs' 'smbclient' 'libssh' 'libcanberra' 'oxygen-icons' 'xorg-xauth' 'libwebp' 'exiv2' 'gpgme')
 optdepends=('drkonqi: crash report tool' 'khelpcenter: to display applications documentation')
 provides=(notification-daemon)
-conflicts=(kdesu4)
-replaces=(kdesu4)
+conflicts=(kdesu4 kdebase-runtime)
+replaces=(kdesu4 kdebase-runtime)
 source=("https://download.kde.org/Attic/applications/$pkgver/src/kde-runtime-$pkgver.tar.xz"{,.sig}
         kdebase-runtime-no-html-thumbnails.patch kdebase-runtime-no-kdewebkit.patch)
 sha256sums=('682c18afb11cda41288c4508831cb59797417b9d81ea916e0e99722ebe9bce96'
