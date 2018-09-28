@@ -7,13 +7,13 @@
 pkgname=brinkOS-ncurses5-compat-libs
 _pkgname=ncurses
 pkgver=6.1
-pkgrel=1
+pkgrel=2
 pkgdesc='System V Release 4.0 curses emulation library, ABI 5'
 arch=(i686 x86_64)
 url='http://invisible-island.net/ncurses/ncurses.html'
 license=(MIT)
 depends=(glibc gcc-libs sh)
-provides=(libtinfo5)
+provides=(libtinfo5 ncurses5-compat-libs)
 conflicts=(libtinfo5 ncurses5-compat-libs)
 source=(https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$pkgver.tar.gz{,.sig})
 md5sums=('98c889aaf8d23910d2b92d65be2e737a'
