@@ -4,9 +4,9 @@
 # Contributor: ahrs
 
 pkgname=brinkOS-mailspring
-_pkgver=1.4.2
+_pkgver=1.5.5
 pkgver=${_pkgver}
-pkgrel=2
+pkgrel=1
 pkgdesc="A beautiful, fast and maintained fork of Nylas Mail by one of the original authors."
 arch=('x86_64')
 conflicts=('mailspring')
@@ -17,7 +17,7 @@ options=('!strip')
 
 source=()
 sha256sums=()
-sha256sums_x86_64=('a32c8d4673763f7dc3edde481e68b2c3d178614fdf497b5c032c4f3b6a023b23')
+sha256sums_x86_64=('60786914dcbac0a5089624b3f1059163df4c303ba1aba4036c4349bc777205ba')
 
 source_x86_64=("https://github.com/Foundry376/Mailspring/releases/download/${_pkgver}/mailspring-${_pkgver}-amd64.deb")
 depends=("libgnome-keyring" "gnome-keyring" "libxss" "libtool" "c-ares" "ctemplate" "tidy" "libxkbfile" "libsecret" "gconf" "gtk2" "nss")
