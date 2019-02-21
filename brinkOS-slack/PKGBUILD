@@ -1,16 +1,16 @@
 # Maintainer: James Brink <brink.james@gmail.com>
 pkgname=brinkOS-slack
-pkgver=3.3.1
+pkgver=3.3.7
 pkgrel=1
 pkgdesc="Slack Desktop (Beta) for Linux"
 arch=('x86_64')
 url="https://slack.com/downloads"
 license=('custom')
-depends=('alsa-lib' 'gconf' 'gtk2' 'libcurl-compat' 'libsecret' 'libxss' 'libxtst' 'nss')
+depends=('alsa-lib' 'gconf' 'gtk3' 'libcurl-compat' 'libsecret' 'libxss' 'libxtst' 'nss' 'glibc>=2.28-4')
 optdepends=('gnome-keyring')
 source=("https://downloads.slack-edge.com/linux_releases/slack-desktop-${pkgver}-amd64.deb"
         "${pkgname}.patch")
-sha256sums=('11c3294a68a0e5f0d36d90460c4e0b61629305e0217ec9ea058c3b222e25c3a1'
+sha256sums=('17310bc323eafcef86c134c7aea9b53a82f8394aa30a886ac419f9a5a23168e0'
             'c952eb32dd59beff9fc5374853b04acde4a60ed8c39934fcd0b66829455d594d')
 provides=('slack' 'brinkOS-slack' 'slack-desktop')
 conflicts=('slack' 'slack-desktop')
